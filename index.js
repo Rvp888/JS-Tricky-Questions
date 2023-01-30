@@ -580,3 +580,233 @@
 // bar gets invoked, "Second" gets logged, and it's popped off the stack.
 
 
+
+
+// 31. What is the event.target when clicking the button?
+
+{/* <div onclick="console.log('first div')">
+  <div onclick="console.log('second div')">
+    <button onclick="console.log('button')">
+      Click!
+    </button>
+  </div>
+</div> */}
+
+// a. Outer div     b. Inner div     c. button    d. An array of all nested elements
+
+// Explaination:
+// The deepest nested element that caused the event is the target of the event(button). You can stop bubbling by event.stopPropagation.
+
+
+
+
+// 32. When you click the paragraph, what's the logged output?
+
+{/* <div onclick="console.log('div')">
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
+</div> */}
+
+// a. p div     b. div p      c. p      d. div
+
+// Explaination:
+// If we click p, we see two logs: p and div. During event propagation, there are 3 phases: capturing, target, and bubbling. 
+// By default, event handlers are executed in the bubbling phase (unless you set useCapture to true). It goes from the deepest 
+// nested element outwards.
+
+
+
+
+// 33. What is the output?
+
+// const person = { name: "Lydia" };
+
+// function sayHi(age) {
+//   return `${this.name} is ${age}`;
+// }
+
+// console.log(sayHi.call(person, 21));
+// console.log(sayHi.bind(person, 21));
+
+// Explaination:
+// With both, we can pass the object to which we want the this keyword to refer to. However, .call is also executed immediately!
+
+// .bind. returns a copy of the function, but with a bound context! It is not executed immediately.
+
+
+
+
+// 34. What is the output?
+
+// function sayHi() {
+//     return (() => 0)();
+// }
+
+// console.log(typeof sayHi());
+
+// a. object    b. number    c. function    d. undefined
+
+// Explaination:
+// The sayHi function returns the returned value of the immediately invoked function (IIFE). This function returned 0, which is type "number".
+
+// FYI: there are only 7 built-in types: null, undefined, boolean, number, string, object, and symbol. 
+// "function" is not a type, since functions are objects, it's of type "object".
+
+
+
+
+// 35. Which of these values are falsy?
+
+// 0;
+// new Number(0);
+// ("");
+// (" ");
+// new Boolean(false);
+// undefined;  
+
+// Explaination:
+// There are only six falsy values:
+// undefined
+// null
+// NaN
+// 0
+// '' (empty string)
+// false
+
+// Function constructors, like new Number and new Boolean are truthy.
+
+
+
+
+// 36. What is the output?
+
+// console.log(typeof typeof 1);
+
+// Explaination:
+// typeof 1 returns "number". typeof "number" returns "string".
+
+
+
+
+// 37. What is the output?
+
+// const numbers = [1, 2, 3];
+// numbers[10] = 11;
+// console.log(numbers);
+
+// Explaination:
+// When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". 
+// These actually have the value of undefined, but you will see something like:
+
+// [1, 2, 3, 7 x empty, 11]
+
+// depending on where you run it (it's different for every browser, node, etc.)
+
+
+
+
+// 38. What is the output?
+
+// (() => {
+//     let x, y;
+//     try {
+//         throw new Error();
+//     } catch (x) {
+//         (x = 1), (y = 2);
+//         console.log(x);
+//     }
+//     console.log(x);
+//     console.log(y);
+// })();
+
+// Explaination:
+// The catch block receives the argument x. This is not the same x as the variable when we pass arguments. 
+// This variable x is block-scoped.
+
+// Later, we set this block-scoped variable equal to 1, and set the value of the variable y. 
+// Now, we log the block-scoped variable x, which is equal to 1.
+
+// Outside of the catch block, x is still undefined, and y is 2. When we want to console.log(x) outside of the catch block, 
+// it returns undefined, and y returns 2.
+
+
+
+
+// 39. Everything in JavaScript is either a _____
+//  a. primitive or object
+//  b. function or object
+//  c. trick question! only objects
+//  d. number or object
+
+// Explaination:
+// JavaScript only has primitive types and objects.
+// Primitive types are boolean, null, undefined, bigint, number, string, and symbol.
+
+// What differentiates a primitive from an object is that primitives do not have any properties or methods; 
+// however, you'll note that 'foo'.toUpperCase() evaluates to 'FOO' and does not result in a TypeError. 
+// This is because when you try to access a property or method on a primitive like a string, JavaScript 
+// will implicitly wrap the object using one of the wrapper classes, i.e. String, and then immediately 
+// discard the wrapper after the expression evaluates. All primitives except for null and undefined exhibit this behaviour.
+
+
+
+
+// 40. What is the output?
+
+// [[0, 1], [2, 3]].reduce(
+//     (acc, cur) => {
+//         return acc.concat(cur);
+//     },
+//     [1, 2]
+// );
+
+// a. [0,1,2,3,1,2]
+// b. [6,1,2]
+// c. [1,2,0,1,2,3]
+// d. [1,2,6]
+
+// Explaination:
+// [1, 2] is our initial value. This is the value we start with, and the value of the very first acc. 
+// During the first round, acc is [1,2], and cur is [0, 1]. We concatenate them, which results in [1, 2, 0, 1].
+
+// Then, [1, 2, 0, 1] is acc and [2, 3] is cur. We concatenate them, and get [1, 2, 0, 1, 2, 3].
+
+
+
+
+// 41. What is the output?
+
+// !!null;
+// !!"";
+// !!1;
+
+// a. false true false
+// b. false false true
+// c. false true true
+// d. true true false
+
+// Explaination:
+// null is falsy. !null returns true. !true returns false.
+
+// "" is falsy. !"" returns true. !true returns false.
+
+// 1 is truthy. !1 returns false. !false returns true.
+
+
+
+
+// 42. What does the setInterval method return in the browser?
+
+// setInterval(() => console.log("Hi"), 1000);
+
+// a. a unique id
+// b. the amount of milliseconds specified
+// c. the passed function
+// d. undefined
+
+// Explaination:
+// It returns a unique id. This id can be used to clear that interval with the clearInterval() function.
+
+
+
