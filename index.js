@@ -810,3 +810,40 @@
 
 
 
+
+// 43. What does this return?
+
+// [..."Lydia"];
+
+// a. ["L","y","d","i","a"]
+// b. ["Lydia"]
+// c. [[],"Lydia"]
+// d. [["L","y","d","i","a"]]
+
+// Explaination:
+// A string is an iterable. The spread operator maps every character of an iterable to one element.
+
+
+
+
+// 44. What is the output?
+
+// function* generator(i) {
+//   yield i;
+//   yield i * 2;
+// }
+
+// const gen = generator(10);
+
+// console.log(gen.next().value);
+// console.log(gen.next().value);
+
+
+
+
+
+
+
+
+
+
