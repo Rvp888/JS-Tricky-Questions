@@ -841,6 +841,72 @@
 
 
 
+// 45. What does this return?
+
+// const firstPromise = new Promise((res, rej) => {
+//   setTimeout(res, 500, "one");
+// });
+
+// const secondPromise = new Promise((res, rej) => {
+//   setTimeout(res, 100, "two");
+// });
+
+// Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+
+// Explaination:
+// When we pass multiple promises to the Promise.race method, it resolves/rejects the first promise that resolves/rejects. 
+// To the setTimeout method, we pass a timer: 500ms for the first promise (firstPromise), and 100ms for the second promise (secondPromise). 
+// This means that the secondPromise resolves first with the value of 'two'. res now holds the value of 'two', which gets logged.
+
+
+
+
+// 46. What is the output?
+
+// let person = { name: "Lydia" };
+// const members = [person];
+// person = null;
+
+// console.log(members);
+
+// Explaination:
+// First, we declare a variable person with the value of an object that has a name property.
+// Then, we declare a variable called members. We set the first element of that array equal to the value of the person variable. 
+// Objects interact by reference when setting them equal to each other. When you assign a reference from one variable to another, 
+// you make a copy of that reference. (note that they don't have the same reference!)
+
+// Then, we set the variable person equal to null.
+// We are only modifying the value of the person variable, and not the first element in the array, since that element has a different
+// (copied) reference to the object. The first element in members still holds its reference to the original object. When we log the 
+// members array, the first element still holds the value of the object, which gets logged.
+
+
+
+
+// 47. What is the output?
+
+// const person = {
+//   name: "Lydia",
+//   age: 21
+// };
+
+// for (const item in person) {
+//   console.log(item);
+// }
+
+// Explaination:
+// With a for-in loop, we can iterate through object keys, in this case name and age. Under the hood, 
+// object keys are strings (if they're not a Symbol). On every loop, we set the value of item equal to 
+// the current key it’s iterating over. First, item is equal to name, and gets logged. Then, item is equal 
+// to age, which gets logged.
+
+
+
+
+
+
+
+
 // 52. What is the output?
 
 // function greeting() {
