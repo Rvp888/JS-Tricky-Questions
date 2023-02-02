@@ -903,6 +903,81 @@
 
 
 
+// 48. What is the output?
+
+// console.log(3 + 4 + "5");
+
+// a. "345"   b. "75"   c. 12   d. "12"
+
+// Explaination:
+// Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. 
+// This only happens if all operators have the same precedence. We only have one type of operator: +. For addition, the associativity 
+// is left-to-right.
+
+// 3 + 4 gets evaluated first. This results in the number 7.
+
+// 7 + '5' results in "75" because of coercion. JavaScript converts the number 7 into a string, see question 15. 
+// We can concatenate two strings using the +operator. "7" + "5" results in "75".
+
+
+
+
+// 49. What's the value of num?
+
+// const num = parseInt("7*6", 10);
+
+// a. 42   b. "42"   c. 7   d. NaN
+
+// Explaination:
+// Only the first numbers in the string is returned. Based on the radix (the second argument in order to specify what type of number 
+// we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the parseInt checks whether the characters in the string are valid. 
+// Once it encounters a character that isn't a valid number in the radix, it stops parsing and ignores the following characters.
+
+// * is not a valid number. It only parses "7" into the decimal 7. num now holds the value of 7.
+
+
+
+
+// 50. What is the output?
+
+// [1, 2, 3].map(num => {
+//   if (typeof num === "number") return;
+//   return num * 2;
+// });
+
+// a. []
+// b. [null, null, null]
+// c. [undefined, undefined, undefined]
+// d. [3 x empty]
+
+// When mapping over the array, the value of num is equal to the element it’s currently looping over. In this case, the elements are numbers, 
+// so the condition of the if statement typeof num === "number" returns true. The map function creates a new array and inserts the values returned 
+// from the function.
+
+// However, we don’t return a value. When we don’t return a value from the function, the function returns undefined. For every element in the array, 
+// the function block gets called, so for each element we return undefined.
+
+
+
+
+// 51. What is the output?
+
+// function getInfo(member, year) {
+//   member.name = "Lydia";
+//   year = "1998";
+// }
+
+// const person = { name: "Sarah" };
+// const birthYear = "1997";
+
+// getInfo(person, birthYear);
+
+// console.log(person, birthYear);
+
+// a. { name: "Lydia" }, "1997"
+// b. { name: "Sarah" }, "1998"
+// c. { name: "Lydia" }, "1998"
+// d. { name: "Sarah" }, "1997"
 
 
 
@@ -931,3 +1006,83 @@
 // With the catch statement, we can specify what to do if an exception is thrown in the try block. An exception is thrown: the string 'Hello world'. 
 // e is now equal to that string, which we log. This results in 'Oh an error: Hello world'.
 
+
+
+
+// 53. What is the output?
+
+// function Car() {
+//   this.make = "Lamborghini";
+//   return { make: "Maserati" };
+// }
+
+// const myCar = new Car();
+// console.log(myCar.make);
+
+// Explaination: 
+// When you return a property, the value of the property is equal to the returned value, not the value set in the constructor function. 
+// We return the string "Maserati", so myCar.make is equal to "Maserati".
+
+
+
+
+// 54. What is the output?
+
+// (() => {
+//   let x = (y = 10);
+// })();
+
+// console.log(typeof x);
+// console.log(typeof y);
+
+// a. "undefined", "number"
+// b. "number", "number"
+// c. "object", "number"
+// d. "number", "undefined"
+
+// Explaination: 
+// let x = y = 10; is actually shorthand for:
+
+// y = 10;
+// let x = y;
+// When we set y equal to 10, we actually add a property y to the global object (window in browser, global in Node). 
+// In a browser, window.y is now equal to 10.
+// Then, we declare a variable x with the value of y, which is 10. Variables declared with the let keyword are block scoped, 
+// they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we 
+// use the typeof operator, the operand x is not defined: we are trying to access x outside of the block it's declared in. 
+// This means that x is not defined. Values who haven't been assigned a value or declared are of type "undefined". 
+// console.log(typeof x) returns "undefined".
+
+// However, we created a global variable y when setting y equal to 10. This value is accessible anywhere in our code. y is defined, 
+// and holds a value of type "number". console.log(typeof y) returns "number".
+
+
+
+
+// 55. What is the output?
+
+// class Dog {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+// Dog.prototype.bark = function() {
+//   console.log(`Woof I am ${this.name}`);
+// };
+
+// const pet = new Dog("Mara");
+
+// pet.bark();
+
+// delete Dog.prototype.bark;
+
+// pet.bark();
+
+// Explaination: 
+// We can delete properties from objects using the delete keyword, also on the prototype. By deleting a property on the prototype, 
+// it is not available anymore in the prototype chain. In this case, the bark function is not available anymore on the prototype after 
+// delete Dog.prototype.bark, yet we still try to access it.
+
+// When we try to invoke something that is not a function, a TypeError is thrown. In this case TypeError: pet.bark is not a function, 
+// since pet.bark is undefined.
