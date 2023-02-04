@@ -1086,3 +1086,20 @@
 
 // When we try to invoke something that is not a function, a TypeError is thrown. In this case TypeError: pet.bark is not a function, 
 // since pet.bark is undefined.
+
+
+
+
+// 56. What is the output?
+
+// const set = new Set([1, 1, 2, 3, 4]);
+
+// console.log(set);
+
+// Explaination: 
+// The Set object is a collection of unique values: a value can only occur once in a set.
+
+// We passed the iterable [1, 1, 2, 3, 4] with a duplicate value 1. Since we cannot have two of the same values in a set, 
+// one of them is removed. This results in {1, 2, 3, 4}.
+
+
