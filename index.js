@@ -1135,3 +1135,15 @@
 // When we set age equal to 21, we actually added a property called age to the global object. You can successfully 
 // delete properties from objects this way, also the global object, so delete age returns true.
 
+
+
+
+// 59. What is the output?
+
+// const numbers = [1, 2, 3, 4, 5];
+// const [y] = numbers;
+
+// console.log(y);
+
+// Explaination: 
+// The value of y is equal to the first value in the array, which is the number 1. When we log y, 1 is returned.
