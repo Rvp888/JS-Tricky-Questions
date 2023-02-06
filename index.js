@@ -1147,3 +1147,11 @@
 
 // Explaination: 
 // The value of y is equal to the first value in the array, which is the number 1. When we log y, 1 is returned.
+
+
+
+
+
+
+
+
