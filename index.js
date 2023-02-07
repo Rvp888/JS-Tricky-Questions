@@ -1166,3 +1166,72 @@
 
 
 
+// 61. What is the output?
+
+// const person = { name: "Lydia" };
+
+// Object.defineProperty(person, "age", { value: 21 });
+
+// console.log(person);
+// console.log(Object.keys(person));
+
+// Explaination: 
+// With the defineProperty method, we can add new properties to an object, or modify existing ones. When we add a property to an object 
+// using the defineProperty method, they are by default not enumerable. The Object.keys method returns all enumerable property names 
+// from an object, in this case only "name".
+
+// Properties added using the defineProperty method are immutable by default. You can override this behavior using the writable, 
+// configurable and enumerable properties. This way, the defineProperty method gives you a lot more control over the properties 
+// you're adding to an object.
+
+
+
+
+// 62. What is the output?
+
+// const settings = {
+//   username: "lydiahallie",
+//   level: 19,
+//   health: 90
+// };
+
+// const data = JSON.stringify(settings, ["level", "health"]);
+// console.log(data);
+
+// Explaination: 
+// The second argument of JSON.stringify is the replacer. The replacer can either be a function or an array, and lets you control what 
+// and how the values should be stringified.
+
+// If the replacer is an array, only the property names included in the array will be added to the JSON string. In this case, only the 
+// properties with the names "level" and "health" are included, "username" is excluded. data is now equal to "{"level":19, "health":90}".
+
+// If the replacer is a function, this function gets called on every property in the object you're stringifying. The value returned 
+// from this function will be the value of the property when it's added to the JSON string. If the value is undefined, this property 
+// is excluded from the JSON string.
+
+
+
+
+// 63. What is the output?
+
+// let num = 10;
+
+// const increaseNumber = () => num++;
+// const increasePassedNumber = number => number++;
+
+// const num1 = increaseNumber();
+// const num2 = increasePassedNumber(num1);
+
+// console.log(num1);
+// console.log(num2);
+
+// Explaination:
+// The unary operator ++ first returns the value of the operand, then increments the value of the operand. The value of num1 is 10, 
+// since the increaseNumber function first returns the value of num, which is 10, and only increments the value of num afterwards.
+
+// num2 is 10, since we passed num1 to the increasePassedNumber. number is equal to 10(the value of num1. Again, the unary operator ++ 
+//   first returns the value of the operand, then increments the value of the operand. The value of number is 10, so num2 is equal to 10.
+
+
+
+
