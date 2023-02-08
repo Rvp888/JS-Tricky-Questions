@@ -1263,3 +1263,73 @@
 // The fourth time, we pass the value object again. x.number was previously modified to 20, so x.number *= 2 logs 40.
 
 
+
+
+// 65. What is the output?
+
+// [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+
+// Explaination:
+// The first argument that the reduce method receives is the accumulator, x in this case. The second argument is the current value, y. 
+// With the reduce method, we execute a callback function on every element in the array, which could ultimately result in one single value.
+
+// In this example, we are not returning any values, we are simply logging the values of the accumulator and the current value.
+
+// The value of the accumulator is equal to the previously returned value of the callback function. If you don't pass the optional initialValue 
+// argument to the reduce method, the accumulator is equal to the first element on the first call.
+
+// On the first call, the accumulator (x) is 1, and the current value (y) is 2. We don't return from the callback function, we log the 
+// accumulator and current value: 1 and 2 get logged.
+
+// If you don't return a value from a function, it returns undefined. On the next call, the accumulator is undefined, and the current value is 3. 
+// undefined and 3 get logged.
+
+// On the fourth call, we again don't return from the callback function. The accumulator is again undefined, and the current value is 4. 
+// undefined and 4 get logged.
+
+
+
+
+// 66. With which constructor can we successfully extend the Dog class?
+
+// class Dog {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// };
+
+// class Labrador extends Dog {
+//   // 1 
+//   constructor(name, size) {
+//     this.size = size;
+//   }
+//   // 2
+//   constructor(name, size) {
+//     super(name);
+//     this.size = size;
+//   }
+//   // 3
+//   constructor(size) {
+//     super(name);
+//     this.size = size;
+//   }
+//   // 4 
+//   constructor(name, size) {
+//     this.name = name;
+//     this.size = size;
+//   }
+
+// };
+
+// Explaination:
+// In a derived class, you cannot access the this keyword before calling super. If you try to do that, it will throw a ReferenceError: 1 and 4 
+// would throw a reference error.
+
+// With the super keyword, we call that parent class's constructor with the given arguments. The parent's constructor receives the name argument, 
+// so we need to pass name to super.
+
+// The Labrador class receives two arguments, name since it extends Dog, and size as an extra property on the Labrador class. They both need to be 
+// passed to the constructor function on Labrador, which is done correctly using constructor 2.
+
+
+
