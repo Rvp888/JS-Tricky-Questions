@@ -1502,3 +1502,44 @@
 
 // The push method modifies the original array. If you wanted to return the array from the function rather than the length 
 // of the array, you should have returned list after pushing item to it.
+
+
+
+
+// 75. What is the output?
+
+// const box = { x: 10, y: 20 };
+
+// Object.freeze(box);
+
+// const shape = box;
+// shape.x = 100;
+
+// console.log(shape);
+
+// Explaination:
+// Object.freeze makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).
+
+// When we create the variable shape and set it equal to the frozen object box, shape also refers to a frozen object. You can check whether 
+// an object is frozen by using Object.isFrozen. In this case, Object.isFrozen(shape) returns true, since the variable shape has a reference 
+// to a frozen object.
+
+// Since shape is frozen, and since the value of x is not an object, we cannot modify the property x. x is still equal to 10, and 
+// { x: 10, y: 20 } gets logged.
+
+
+
+
+// 76. What is the output?
+
+// const { name: myName } = { name: "Lydia" };
+
+// console.log(name);
+
+// Explaination:
+// When we unpack the property name from the object on the right-hand side, we assign its value "Lydia" to a variable with the name myName.
+
+// With { name: myName }, we tell JavaScript that we want to create a new variable called myName with the value of the name property on the 
+// right-hand side.
+
+// Since we try to log name, a variable that is not defined, a ReferenceError gets thrown.
