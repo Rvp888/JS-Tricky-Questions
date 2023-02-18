@@ -1543,3 +1543,85 @@
 // right-hand side.
 
 // Since we try to log name, a variable that is not defined, a ReferenceError gets thrown.
+
+
+
+
+// 77. Is this a pure function?
+
+// function sum(a, b) {
+//   return a + b;
+// }
+
+// Explaination:
+// A pure function is a function that always returns the same result, if the same arguments are passed.
+
+// The sum function always returns the same result. If we pass 1 and 2, it will always return 3 without side effects. 
+// If we pass 5 and 10, it will always return 15, and so on. This is the definition of a pure function.
+
+
+
+
+// 78. What is the output?
+
+// const add = () => {
+//   const cache = {};
+//   return num => {
+//     if (num in cache) {
+//       return `From cache! ${cache[num]}`;
+//     } else {
+//       const result = num + 10;
+//       cache[num] = result;
+//       return `Calculated! ${result}`;
+//     }
+//   };
+// };
+
+// const addFunction = add();
+// console.log(addFunction(10));
+// console.log(addFunction(10));
+// console.log(addFunction(5 * 2));
+
+// Explaination:
+// The add function is a memoized function. With memoization, we can cache the results of a function in order to speed up its execution. 
+// In this case, we create a cache object that stores the previously returned values.
+
+// If we call the addFunction function again with the same argument, it first checks whether it has already gotten that value in its cache. 
+// If that's the case, the caches value will be returned, which saves on execution time. Else, if it's not cached, it will calculate the value 
+// and store it afterwards.
+
+// We call the addFunction function three times with the same value: on the first invocation, the value of the function when num is equal to 10 
+// isn't cached yet. The condition of the if-statement num in cache returns false, and the else block gets executed: Calculated! 20 gets logged, 
+// and the value of the result gets added to the cache object. cache now looks like { 10: 20 }.
+
+// The second time, the cache object contains the value that gets returned for 10. The condition of the if-statement num in cache returns true, 
+// and 'From cache! 20' gets logged.
+
+// The third time, we pass 5 * 2 to the function which gets evaluated to 10. The cache object contains the value that gets returned for 10. 
+// The condition of the if-statement num in cache returns true, and 'From cache! 20' gets logged.
+
+
+
+
+// 79. What is the output?
+
+// const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
+
+// for (let item in myLifeSummedUp) {
+//   console.log(item)
+// }
+
+// for (let item of myLifeSummedUp) {
+//   console.log(item)
+// }
+
+// Explaination:
+// With a for-in loop, we can iterate over enumerable properties. In an array, the enumerable properties are the "keys" of array elements, 
+// which are actually their indexes. You could see an array as:
+
+// {0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}
+
+// Where the keys are the enumerable properties. 0 1 2 3 get logged.
+
+// With a for-of loop, we can iterate over iterables. An array is an iterable. When we iterate over the array, the variable "item" is equal 
+// to the element it's currently iterating over, "☕" "💻" "🍷" "🍫" get logged.
