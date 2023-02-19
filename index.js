@@ -1625,3 +1625,21 @@
 
 // With a for-of loop, we can iterate over iterables. An array is an iterable. When we iterate over the array, the variable "item" is equal 
 // to the element it's currently iterating over, "☕" "💻" "🍷" "🍫" get logged.
+
+
+
+
+// 80. What is the output?
+
+// const list = [1 + 2, 1 * 2, 1 / 2]
+// console.log(list)
+
+// Explaination:
+// Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and 
+// other expressions such as dates, functions, and calculations.
+
+// The element will be equal to the returned value. 1 + 2 returns 3, 1 * 2 returns 2, and 1 / 2 returns 0.5.
+
+
+
+
