@@ -1691,3 +1691,51 @@
 // that the function belongs to. We declared the setTimeout function on the global object, so within the setTimeout function, the this keyword 
 // refers to the global object. On the global object, there is a variable called status with the value of "😎". When logging this.status, 
 // "😎" gets logged.
+
+
+
+
+// 83. What is the output?
+
+// const person = {
+//   name: "Lydia",
+//   age: 21
+// }
+
+// let city = person.city
+// city = "Amsterdam"
+
+// console.log(person)
+
+// Explaination: 
+// We set the variable city equal to the value of the property called city on the person object. There is no property on this object called city, 
+// so the variable city has the value of undefined.
+
+// Note that we are not referencing the person object itself! We simply set the variable city equal to the current value of the city property 
+// on the person object.
+
+// Then, we set city equal to the string "Amsterdam". This doesn't change the person object: there is no reference to that object.
+
+// When logging the person object, the unmodified object gets returned.
+
+
+
+
+// 84. What is the output?
+
+// function checkAge(age) {
+//   if (age < 18) {
+//     const message = "Sorry, you're too young."
+//   } else {
+//     const message = "Yay! You're old enough!"
+//   }
+
+//   return message
+// }
+
+// console.log(checkAge(21))
+
+// Explaination: 
+// Variables with the const and let keyword are block-scoped. A block is anything between curly brackets ({ }). 
+// In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block 
+// it's declared in, a ReferenceError gets thrown.
