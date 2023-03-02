@@ -1756,3 +1756,37 @@
 
 
 
+// 86. Which option is way to set 'hasName' equal to equal to true, provided you cannot pass true as an argument?
+
+// function getName(name) {
+//   const hasName = //
+// }
+
+// a. !!name     b. name     c. new Boolean(name)     d. name.length
+
+// Explaination:
+// With !!name, we determine whether the value of name is truthy or falsy. If name is truthy, which we want to test for, !name returns false. 
+// !false (which is what !!name practically is) returns true.
+
+// By setting hasName equal to name, you set hasName equal to whatever value you passed to the getName function, not the boolean value true.
+
+// new Boolean(true) returns an object wrapper, not the boolean value itself.
+
+// name.length returns the length of the passed argument, not whether it's true.
+
+
+
+
+// 87. What is the output?
+
+// console.log("I want pizza"[0])
+
+// a.   ""   b.   "I"    c.   SyntaxError   d.   undefined
+
+// Explaination:
+// In order to get an character on a specific index in a string, you can use bracket notation. 
+// The first character in the string has index 0, and so on. In this case we want to get the 
+// element which index is 0, the character "I', which gets logged.
+
+// Note that this method is not supported in IE7 and below. In that case, use .charAt().
+
