@@ -1790,3 +1790,52 @@
 
 // Note that this method is not supported in IE7 and below. In that case, use .charAt().
 
+
+
+
+// 88. What is the output?
+
+// function sum(num1, num2 = num1) {
+//   console.log(num1 + num2)
+// }
+
+// sum(10)
+
+// Explaination:
+// You can set a default parameter's value equal to another parameter of the function, as long as they've been 
+// defined before the default parameter. We pass the value 10 to the sum function. If the sum function only 
+// receives 1 argument, it means that the value for num2 is not passed, and the value of num1 is equal to the 
+// passed value 10 in this case. The default value of num2 is the value of num1, which is 10. num1 + num2 returns 20.
+
+// If you're trying to set a default parameter's value equal to a parameter which is defined after (to the right), 
+// the parameter's value hasn't been initialized yet, which will throw an error.
+
+
+
+
+// 89. What is the output?
+
+// // module.js 
+// export default () => "Hello world"
+// export const name = "Lydia"
+
+// // index.js 
+// import * as data from "./module"
+
+// console.log(data)
+
+// a. { default: function default(), name: "Lydia" }
+// b. { default: function default() }
+// c. { default: "Hello world", name: "Lydia" }
+// d. Global object of module.js
+
+// Explaination:
+// With the import * as name syntax, we import all exports from the module.js file into the index.js file as a new object 
+// called data is created. In the module.js file, there are two exports: the default export, and a named export. 
+// The default export is a function which returns the string "Hello World", and the named export is a variable called name 
+// which has the value of the string "Lydia".
+
+// The data object has a default property for the default export, other properties have the names of the named exports and 
+// their corresponding values.
+
+// Ans: { default: function default(), name: "Lydia" }
