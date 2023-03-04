@@ -1839,3 +1839,60 @@
 // their corresponding values.
 
 // Ans: { default: function default(), name: "Lydia" }
+
+
+
+
+// 90. What is the output?
+
+// class Person {
+//   constructor(name) {
+//     this.name = name
+//   }
+// }
+
+// const member = new Person("John")
+// console.log(typeof member)
+
+// Explaination:
+// Classes are syntactical sugar for function constructors. The equivalent of the Person class as a function constructor would be:
+
+// function Person() {
+//   this.name = name
+// }
+// Calling a function constructor with new results in the creation of an instance of Person, typeof keyword returns "object" for an instance. 
+// typeof member returns "object".
+
+
+
+
+// 91. What is the output?
+
+// let newList = [1, 2, 3].push(4)
+
+// console.log(newList.push(5))
+
+// Explaination:
+// The .push method returns the new length of the array, not the array itself! By setting newList equal to [1, 2, 3].push(4), 
+// we set newList equal to the new length of the array: 4.
+
+// Then, we try to use the .push method on newList. Since newList is the numerical value 4, we cannot use the .push method: a TypeError is thrown.
+
+
+
+
+// 92. What is the output?
+
+// function giveLydiaPizza() {
+//   return "Here is pizza!"
+// }
+
+// const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
+
+// console.log(giveLydiaPizza.prototype)
+// console.log(giveLydiaChocolate.prototype)
+
+// Explaination:
+// Regular functions, such as the giveLydiaPizza function, have a prototype property, which is an object (prototype object) 
+// with a constructor property. Arrow functions however, such as the giveLydiaChocolate function, do not have this prototype 
+// property. undefined gets returned when trying to access the prototype property using giveLydiaChocolate.prototype.
