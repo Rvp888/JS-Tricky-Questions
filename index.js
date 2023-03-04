@@ -1896,3 +1896,87 @@
 // Regular functions, such as the giveLydiaPizza function, have a prototype property, which is an object (prototype object) 
 // with a constructor property. Arrow functions however, such as the giveLydiaChocolate function, do not have this prototype 
 // property. undefined gets returned when trying to access the prototype property using giveLydiaChocolate.prototype.
+
+
+
+
+// 93. What is the output?
+
+// const person = {
+//   name: "Lydia",
+//   age: 21
+// }
+
+// for (const [x, y] of Object.entries(person)) {
+//   console.log(x, y)
+// }
+
+// Explaination:
+// Object.entries(person) returns an array of nested arrays, containing the keys and objects:
+
+// [ [ 'name', 'Lydia' ], [ 'age', 21 ] ]
+
+// Using the for-of loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays 
+// instantly in the for-of loop, using const [x, y]. x is equal to the first element in the subarray, y is equal to the second element 
+// in the subarray.
+
+// The first subarray is [ "name", "Lydia" ], with x equal to "name", and y equal to "Lydia", which get logged. 
+// The second subarray is [ "age", 21 ], with x equal to "age", and y equal to 21, which get logged.
+
+
+
+
+// 94. What is the output?
+
+// function getItems(fruitList, ...args, favoriteFruit) {
+//   return [...fruitList, ...args, favoriteFruit]
+// }
+
+// getItems(["banana", "apple"], "pear", "orange")
+
+// Explaination:
+// ...args is a rest parameter. The rest parameter's value is an array containing all remaining arguments, and can only be the last parameter! 
+// In this example, the rest parameter was the second parameter. This is not possible, and will throw a syntax error.
+
+// function getItems(fruitList, favoriteFruit, ...args) {
+//   return [...fruitList, ...args, favoriteFruit]
+// }
+
+// getItems(["banana", "apple"], "pear", "orange")
+// The above example works. This returns the array [ 'banana', 'apple', 'orange', 'pear' ]
+
+
+
+
+// 95. What is the output?
+
+// function nums(a, b) {
+//   if
+//   (a > b)
+//   console.log('a is bigger')
+//   else 
+//   console.log('b is bigger')
+//   return 
+//   a + b
+// }
+
+// console.log(nums(4, 2))
+// console.log(nums(1, 2))
+
+// Explaination:
+// In JavaScript, we don't have to write the semicolon (;) explicitly, however the JavaScript engine still adds them after statements. 
+// This is called Automatic Semicolon Insertion. A statement can for example be variables, or keywords like throw, return, break, etc.
+
+// Here, we wrote a return statement, and another value a + b on a new line. However, since it's a new line, the engine doesn't know that 
+// it's actually the value that we wanted to return. Instead, it automatically added a semicolon after return. You could see this as:
+
+//   return;
+//   a + b
+// This means that a + b is never reached, since a function stops running after the return keyword. If no value gets returned, like here, 
+// the function returns undefined. Note that there is no automatic insertion after if/else statements!
+
+
+
+
+// 96. What is the output?
+
