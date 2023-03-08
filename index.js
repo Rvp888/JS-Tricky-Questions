@@ -2168,3 +2168,17 @@
 
 // { name: "Lydia" } is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, 
 // it becomes "[object Object]". "[object Object]" concatenated with "2" becomes "[object Object]2".
+
+
+
+
+// 104. What is its value?
+
+// Promise.resolve(5)
+
+// Explaination:
+// We can pass any type of value we want to Promise.resolve, either a promise or a non-promise. The method itself returns a promise 
+// with the resolved value. If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, 
+// it'll be a resolved promise with the resolved value of that passed promise.
+
+// In this case, we just passed the numerical value 5. It returns a resolved promise with the value 5.
