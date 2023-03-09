@@ -2238,3 +2238,18 @@
 // JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket [ and keeps going 
 // until it finds the closing bracket ]. Only then, it will evaluate the statement. If we would've used colorConfig[colors[1]], 
 // it would have returned the value of the red property on the colorConfig object.
+
+
+
+
+// 107. What is its value?
+
+// console.log('❤️' === '❤️') 
+
+// Explaination:
+// Under the hood, emojis are unicodes. The unicodes for the heart emoji is "U+2764 U+FE0F". These are always the same for the same emojis, 
+// so we're comparing two equal strings to each other, which returns true.
+
+
+
+
