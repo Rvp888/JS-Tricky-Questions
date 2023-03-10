@@ -2293,3 +2293,25 @@
 // Then, we change the value of the favoriteFood property on the info object. The food array hasn't changed, since the value of favoriteFood 
 // was merely a copy of the value of the first element in the array, and doesn't have a reference to the same spot in memory as the element 
 // on food[0]. When we log food, it's still the original array, ['🍕', '🍫', '🥑', '🍔'].
+
+
+
+
+// 110. What does this method do ?
+
+// JSON.parse()
+
+// Explaination:
+// With the JSON.parse() method, we can parse JSON string to a JavaScript value.
+
+// // Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:
+// const jsonNumber = JSON.stringify(4) // '4'
+// JSON.parse(jsonNumber) // 4
+
+// // Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:
+// const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
+// JSON.parse(jsonArray) // [1, 2, 3]
+
+// // Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:
+// const jsonArray = JSON.stringify({ name: "Lydia" }) // '{"name":"Lydia"}'
+// JSON.parse(jsonArray) // { name: 'Lydia' }
