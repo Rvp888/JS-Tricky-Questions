@@ -2269,3 +2269,27 @@
 // from index 1 (we removed '🥑' and '😍') and added the ✨ emoji instead.
 
 // map, filter and slice return a new array, find returns an element, and reduce returns a reduced value.
+
+
+
+
+// 109. What is the output ?
+
+// const food = ['🍕', '🍫', '🥑', '🍔']
+// const info = { favoriteFood: food[0] }
+
+// info.favoriteFood = '🍝'
+
+// console.log(food)
+
+// Explaination:
+// We set the value of the favoriteFood property on the info object equal to the string with the pizza emoji, '🍕'. A string is a 
+// primitive data type. In JavaScript, primitive data types act by reference.
+
+// In JavaScript, primitive data types (everything that's not an object) interact by value. In this case, we set the value of the 
+// favoriteFood property on the info object equal to the value of the first element in the food array, the string with the pizza emoji 
+// in this case ('🍕'). A string is a primitive data type, and interact by value (see my blogpost if you're interested in learning more).
+
+// Then, we change the value of the favoriteFood property on the info object. The food array hasn't changed, since the value of favoriteFood 
+// was merely a copy of the value of the first element in the array, and doesn't have a reference to the same spot in memory as the element 
+// on food[0]. When we log food, it's still the original array, ['🍕', '🍫', '🥑', '🍔'].
