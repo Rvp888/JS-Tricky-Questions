@@ -2399,3 +2399,23 @@
 // Expressions within template literals are evaluated first. This means that the string will contain the returned value of the expression, 
 // the immediately invoked function (x => x)('I love') in this case. We pass the value 'I love' as an argument to the x => x arrow function. 
 // x is equal to 'I love', which gets returned. This results in I love to program.
+
+
+
+
+// 114. What will happen ?
+
+// let config = {
+//   alert: setInterval(() => {
+//     console.log('Alert!')
+//   }, 1000)
+// }
+
+// config = null
+
+// Explaination:
+
+// Normally when we set objects equal to null, those objects get garbage collected as there is no reference anymore to that object. 
+// However, since the callback function within setInterval is an arrow function (thus bound to the config object), the callback function 
+// still holds a reference to the config object. As long as there is a reference, the object won't get garbage collected. Since it's 
+// not garbage collected, the setInterval callback function will still get invoked every 1000ms (1s).
