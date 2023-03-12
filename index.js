@@ -2438,7 +2438,6 @@
 // myMap.get(() => 'greeting')
 
 // Explaination:
-
 // When adding a key/value pair using the set method, the key will be the value of the first argument passed to the set function, 
 // and the value will be the second argument passed to the set function. The key is the function () => 'greeting' in this case, 
 // and the value 'Hello world'. myMap is now { () => 'greeting' => 'Hello world!' }.
@@ -2446,3 +2445,35 @@
 // 1 is wrong, since the key is not 'greeting' but () => 'greeting'. 3 is wrong, since we're creating a new function by passing it 
 // as a parameter to the get method. Object interact by reference. Functions are objects, which is why two functions are never strictly equal, 
 // even if they are identical: they have a reference to a different spot in memory.
+
+
+
+
+// 116. What is the output ?
+
+// const person = {
+//   name: "Lydia",
+//   age: 21
+// }
+
+// const changeAge = (x = { ...person }) => x.age += 1
+// const changeAgeAndName = (x = { ...person }) => {
+//   x.age += 1
+//   x.name = "Sarah"
+// }
+
+// changeAge(person)
+// changeAgeAndName()
+
+// console.log(person)
+
+// Explaination:
+// Both the changeAge and changeAgeAndName functions have a default parameter, namely a newly created object { ...person }. 
+// This object has copies of all the key/values in the person object.
+
+// First, we invoke the changeAge function and pass the person object as its argument. This function increases the value of the 
+// age property by 1. person is now { name: "Lydia", age: 22 }.
+
+// Then, we invoke the changeAgeAndName function, however we don't pass a parameter. Instead, the value of x is equal to a 
+// new object: { ...person }. Since it's a new object, it doesn't affect the values of the properties on the person object. 
+// person is still equal to { name: "Lydia", age: 22 }.
