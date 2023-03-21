@@ -2497,3 +2497,18 @@
 // three arguments: x, y and z. ...[1, 2, 3] will result in 1, 2, 3, which we pass to the sumValues function.
 
 
+
+
+// 118. What is the output ?
+
+// let num = 1;
+// const list = ["🥳", "🤠", "🥰", "🤪"];
+
+// console.log(list[(num += 1)]);
+
+// Explaination:
+// With the += operand, we're incrementing the value of num by 1. num had the initial value 1, so 1 + 1 is 2. 
+// The item on the second index in the list array is 🥰, console.log(list[2]) prints 🥰.
+
+
+
