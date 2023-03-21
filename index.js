@@ -2477,3 +2477,23 @@
 // Then, we invoke the changeAgeAndName function, however we don't pass a parameter. Instead, the value of x is equal to a 
 // new object: { ...person }. Since it's a new object, it doesn't affect the values of the properties on the person object. 
 // person is still equal to { name: "Lydia", age: 22 }.
+
+
+
+
+// 117. Which of the following options will return 6 ?
+
+// function sumValues(x, y, z) {
+// 	return x + y + z;
+// }
+
+// a. sumValues([...1,2,3])
+// b. sumValues([...[1,2,3]])
+// c. sumValues(...[1,2,3])
+// d. sumValues([1,2,3])
+
+// Explaination:
+// With the spread operator ..., we can spread iterables to individual elements. The sumValues function receives 
+// three arguments: x, y and z. ...[1, 2, 3] will result in 1, 2, 3, which we pass to the sumValues function.
+
+
